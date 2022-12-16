@@ -8,15 +8,17 @@
 import UIKit
 
 class PostViewController: UIViewController {
+    var infoViewController = InfoViewController()
     var titlePost: String = "Anonymous"
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         
         let infoButton = UIBarButtonItem(barButtonSystemItem: .bookmarks,
                                          target: self,
-                                         action: #selector(showSimpleAlert))
+                                         action: #selector(showInfoViewController))
         self.navigationItem.rightBarButtonItem = infoButton
+        
+        setupView()
     }
     
     private func setupView() {
@@ -25,19 +27,8 @@ class PostViewController: UIViewController {
             self.navigationController?.navigationBar.prefersLargeTitles = true
         }
     
-    @objc func showSimpleAlert() {
-            let alert = UIAlertController(title: "Sharing",
-                                          message: "Share this post?",
-                                          preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Yes",
-                                      style: UIAlertAction.Style.cancel,
-                                      handler: { (action) in print("Ok, post shared")
-            }))
-            alert.addAction(UIAlertAction(title: "No",
-                                  style: UIAlertAction.Style.default,
-                                  handler: { (action) in print("Ok, alert closed")
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }
+    @objc private func showInfoViewController(){
+        self.present(infoViewController, animated: true, completion: nil)
+    }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A114129294C506500CD28C6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A114128294C506500CD28C6 /* InfoViewController.swift */; };
 		3A990C20294B157D001D0ECC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A990C1F294B157D001D0ECC /* AppDelegate.swift */; };
 		3A990C22294B157D001D0ECC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A990C21294B157D001D0ECC /* SceneDelegate.swift */; };
 		3A990C27294B157D001D0ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A990C25294B157D001D0ECC /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A114128294C506500CD28C6 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3A990C1C294B157D001D0ECC /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A990C1F294B157D001D0ECC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A990C21294B157D001D0ECC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				3A990C21294B157D001D0ECC /* SceneDelegate.swift */,
 				3A990C33294B15B1001D0ECC /* FeedViewController.swift */,
 				3A990C35294B15B8001D0ECC /* PostViewController.swift */,
+				3A114128294C506500CD28C6 /* InfoViewController.swift */,
 				3A990C37294B15C2001D0ECC /* ProfileViewController.swift */,
 				3A990C39294B15C9001D0ECC /* Post.swift */,
 				3A990C25294B157D001D0ECC /* Main.storyboard */,
@@ -150,6 +153,7 @@
 				3A990C36294B15B8001D0ECC /* PostViewController.swift in Sources */,
 				3A990C20294B157D001D0ECC /* AppDelegate.swift in Sources */,
 				3A990C38294B15C2001D0ECC /* ProfileViewController.swift in Sources */,
+				3A114129294C506500CD28C6 /* InfoViewController.swift in Sources */,
 				3A990C3A294B15C9001D0ECC /* Post.swift in Sources */,
 				3A990C34294B15B1001D0ECC /* FeedViewController.swift in Sources */,
 				3A990C22294B157D001D0ECC /* SceneDelegate.swift in Sources */,

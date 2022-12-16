@@ -12,10 +12,11 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButton()
-        buttonAction()
 
         view.backgroundColor = .systemGray2
+        
+        setupButton()
+        buttonAction()
     }
     
     private lazy var button: UIButton = {
