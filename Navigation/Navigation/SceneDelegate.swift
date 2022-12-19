@@ -34,7 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createProfileViewController() -> UINavigationController {
     let profileViewController = ProfileViewController()
-    profileViewController.title = "Profile"
     profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
     return UINavigationController(rootViewController: profileViewController)
     }
@@ -45,8 +44,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.viewControllers = [createFeedViewController(), createProfileViewController()]
         return tabBarController
     }
-    
-
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
