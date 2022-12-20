@@ -34,7 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createProfileViewController() -> UINavigationController {
     let profileViewController = ProfileViewController()
-    profileViewController.title = "Profile"
     profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
     return UINavigationController(rootViewController: profileViewController)
     }
