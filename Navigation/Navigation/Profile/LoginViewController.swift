@@ -43,7 +43,7 @@ class LogInViewController: UIViewController {
         logIn.backgroundColor = .systemGray6
         logIn.textAlignment = .left
         logIn.placeholder = "  Email or phone"
-        logIn.tintColor =  UIColor (named: "AccentColor")
+        logIn.tintColor =  UIColor (named: "myColor")
         logIn.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         logIn.autocapitalizationType = .none
         logIn.clearButtonMode = .whileEditing
