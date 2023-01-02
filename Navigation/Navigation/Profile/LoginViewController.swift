@@ -186,7 +186,7 @@ extension LogInViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        print("\(String(describing: textField.text))")
+        print("\(textField.text ?? "No text")")
         if textField.tag == 0 {
             logInText = textField.text
         }
