@@ -30,7 +30,7 @@ class PostTableViewCell: UITableViewCell {
     
     private lazy var descriptionText: UITextView = {
         let descriptionText = UITextView()
-        descriptionText.textColor = .systemGray
+        descriptionText.textColor = .lightGray
         descriptionText.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         descriptionText.translatesAutoresizingMaskIntoConstraints = false
         descriptionText.isScrollEnabled = false
@@ -40,7 +40,6 @@ class PostTableViewCell: UITableViewCell {
     private lazy var postImage: UIImageView = {
         let postImage = UIImageView()
         postImage.contentMode = .scaleAspectFit
-        postImage.backgroundColor = .black
         postImage.translatesAutoresizingMaskIntoConstraints = false
         return postImage
     }()

@@ -11,7 +11,6 @@ class FeedViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     private let buttonFirst: UIButton = {
         let button = UIButton()
         button.setTitle("View post", for: .normal)
@@ -21,7 +20,6 @@ class FeedViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     private let buttonSecond: UIButton = {
         let button = UIButton()
         button.setTitle("View post", for: .normal)
@@ -31,7 +29,6 @@ class FeedViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     private let postController = PostViewController().self
     
     override func viewDidLoad() {
@@ -42,12 +39,12 @@ class FeedViewController: UIViewController {
         setupConstraints()
     }
     
-   func addTargets() {
-        buttonFirst.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
-        buttonSecond.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
-    }
+    func addTargets() {
+            buttonFirst.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
+            buttonSecond.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
+        }
     
-   func setupConstraints() {
+    func setupConstraints() {
        view.addSubview(stackView)
        stackView.addArrangedSubview(buttonFirst)
        stackView.addArrangedSubview(buttonSecond)

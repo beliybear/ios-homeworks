@@ -17,7 +17,7 @@ class LogInViewController: UIViewController {
 
     private lazy var logoImage: UIImageView = {
           let logoImage = UIImageView()
-          logoImage.image = UIImage (named: "logo")
+          logoImage.image = UIImage(named: "logo")
           logoImage.translatesAutoresizingMaskIntoConstraints = false
           return logoImage
       }()
@@ -30,7 +30,7 @@ class LogInViewController: UIViewController {
         stackView.layer.borderColor = UIColor.lightGray.cgColor
         stackView.layer.borderWidth = 0.5
         stackView.spacing = 0.5
-        stackView.backgroundColor = .lightGray
+        stackView.backgroundColor = .white
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -112,11 +112,11 @@ class LogInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.didShowKeyboard(_:)),
+                                               selector: #selector(self.willShowKeyboard(_:)),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.didHideKeyboard(_:)),
+                                               selector: #selector(self.willHideKeyboard(_:)),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
@@ -149,40 +149,24 @@ class LogInViewController: UIViewController {
             self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
-    @objc private func didShowKeyboard(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            
-            let loginButtonBottomPointY =  button.frame.origin.y + button.frame.height
-            let keyboardOriginY = view.frame.height - keyboardHeight
-            
-            let yOffset = keyboardOriginY < loginButtonBottomPointY
-            ? loginButtonBottomPointY - keyboardOriginY + 16
-            : 0
-            scrollView.contentOffset = CGPoint(x: 0, y: yOffset)
+    @objc func willHideKeyboard(_ notification: NSNotification) {
+            scrollView.contentInset.bottom = 0.0
         }
-    }
     
-    @objc private func didHideKeyboard(_ notification: Notification) {
-        forcedHidingKeyboard()
-    }
+    @objc func willShowKeyboard(_ notification: NSNotification) {
+            let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+        }
     
     @objc private func forcedHidingKeyboard() {
         view.endEditing(true)
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
 }
 
 extension LogInViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-    }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
@@ -195,8 +179,14 @@ extension LogInViewController: UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        forcedHidingKeyboard()
+    func textFieldShouldReturn(
+        _ textField: UITextField
+    ) -> Bool {
+        textField.resignFirstResponder()
+        
         return true
     }
 }
+
+
+
