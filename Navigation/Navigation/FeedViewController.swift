@@ -2,7 +2,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    var post = Post(title: "New Post")
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -12,7 +11,6 @@ class FeedViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     private let buttonFirst: UIButton = {
         let button = UIButton()
         button.setTitle("View post", for: .normal)
@@ -22,7 +20,6 @@ class FeedViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     private let buttonSecond: UIButton = {
         let button = UIButton()
         button.setTitle("View post", for: .normal)
@@ -32,8 +29,7 @@ class FeedViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    let postController = PostViewController().self
+    private let postController = PostViewController().self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +39,12 @@ class FeedViewController: UIViewController {
         setupConstraints()
     }
     
-   func addTargets() {
-        buttonFirst.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
-        buttonSecond.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
-    }
+    func addTargets() {
+            buttonFirst.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
+            buttonSecond.addTarget(self, action: #selector(toPostView), for: .touchUpInside)
+        }
     
-   func setupConstraints() {
+    func setupConstraints() {
        view.addSubview(stackView)
        stackView.addArrangedSubview(buttonFirst)
        stackView.addArrangedSubview(buttonSecond)
@@ -60,6 +56,6 @@ class FeedViewController: UIViewController {
     
     @objc func toPostView() {
         self.navigationController?.pushViewController(postController, animated: true)
-        postController.titlePost = post.title
+        postController.titlePost = "New Post"
     }
 }
